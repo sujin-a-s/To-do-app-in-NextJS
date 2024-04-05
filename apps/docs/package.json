@@ -8,6 +8,19 @@
     "start": "next start",
     "lint": "eslint . --max-warnings 0"
   },
+  "vercel": {
+    "builds": [
+      {
+        "src": "apps/docs",
+        "use": "@vercel/node",
+        "config": {
+          "prisma": {
+            "build": "prisma generate"
+          }
+        }
+      }
+    ]
+  },
   "dependencies": {
     "@repo/db": "*",
     "@repo/ui": "*",

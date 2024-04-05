@@ -21,6 +21,19 @@
     "apps/*",
     "packages/*"
   ],
+  "vercel": {
+    "builds": [
+      {
+        "src": "apps/docs",
+        "use": "@vercel/node",
+        "config": {
+          "prisma": {
+            "build": "prisma generate"
+          }
+        }
+      }
+    ]
+  },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
     "axios": "^1.6.8",
