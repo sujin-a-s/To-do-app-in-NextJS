@@ -42,7 +42,7 @@ export default function LoginPage () {
             console.log("login success : ",respone.data)
             if(respone.status==200){
                 toast.success("login successfull")
-                router.push("/todo")
+                router.push("/todos")
             }
 
         }catch(error : any) {

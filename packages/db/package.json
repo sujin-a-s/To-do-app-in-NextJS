@@ -6,7 +6,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "prisma": "5.11.0"
+    "prisma": "5.12.0"
   },
   "exports": {
     "./client": "./src/index.ts",

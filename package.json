@@ -41,6 +41,7 @@
     "jsonwebtoken": "^9.0.2",
     "next-auth": "^4.24.7",
     "nodemailer": "^6.9.13",
-    "react-hot-toast": "^2.4.1"
+    "react-hot-toast": "^2.4.1",
+    "@repo/db": "*"
   }
 }
