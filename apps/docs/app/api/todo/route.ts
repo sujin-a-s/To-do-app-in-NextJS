@@ -1,11 +1,10 @@
 import prisma from "@repo/db/client"
 import { todoInputs } from "@repo/db/zod"
 import { verify } from "jsonwebtoken"
-import { NextApiRequest } from "next"
 import { NextRequest } from "next/dist/server/web/spec-extension/request"
 import { NextResponse } from "next/dist/server/web/spec-extension/response"
-import { cookies } from "next/headers"
 var compare = require("bcryptjs")
+
 
 export async function POST(req : NextRequest){
     const reqBody = await req.json()
