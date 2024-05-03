@@ -29,6 +29,14 @@ jobs:
     - name: Verify Pushed Image
       run: docker pull sujin511/todo-app:latest
 
-    # Debugging
-    - name: Debug
-      run: echo "Workflow is running"
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@main
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          sudo docker pull sujin511/todo-app:latest
+          sudo docker stop web-app || true
+          sudo docker rm web-app || true
+          sudo docker run -d --name web-app -p 3005:3000 sujin511/todo-app:latest
