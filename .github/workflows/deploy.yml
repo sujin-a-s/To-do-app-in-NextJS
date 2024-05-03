@@ -6,6 +6,7 @@ on:
       - main
       - master
 
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -25,10 +26,10 @@ jobs:
         context: .
         file: ./docker/Dockerfile.user
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/todo-app:latest
+        tags: sujin511/todo-app:latest
 
     - name: Verify Pushed Image
-      run: docker pull ${{ secrets.DOCKER_USERNAME }}/todo-app:latest
+      run: docker pull sujin511/todo-app:latest
 
     - name: Deploy to EC2
       uses: appleboy/ssh-action@master
@@ -37,7 +38,7 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/todo-app:latest
+          sudo docker pull sujin511/todo-app:latest
           sudo docker stop web-app || true
           sudo docker rm web-app || true
-          sudo docker run -d --name web-app -p 3005:3000 ${{ secrets.DOCKER_USERNAME }}/todo-app:latest
+          sudo docker run -d --name web-app -p 3005:3000 sujin511/todo-app:latest
