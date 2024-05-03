@@ -24,9 +24,11 @@ jobs:
         context: .
         file: ./docker/Dockerfile.user
         push: true
-        tags: sujin511/todo-app:latest  # Replace with your Docker Hub username and repository
+        tags: sujin511/todo-app:latest
 
     - name: Verify Pushed Image
-      run: docker pull sujin511/todo-app:latest  # Replace with your Docker Hub username and repository
+      run: docker pull sujin511/todo-app:latest
 
-
+    # Debugging
+    - name: Debug
+      run: echo "Workflow is running"
