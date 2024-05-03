@@ -9,6 +9,7 @@
     "db:generate" :  "cd packages/db && npx prisma generate && cd../..",
     "start-todo-app": "cd ./apps/docs && npm run start"
   },
+  
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
