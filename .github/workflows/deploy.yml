@@ -32,7 +32,7 @@ jobs:
       run: docker pull sujin511/todo-app:latest
 
     - name: Deploy to EC2
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@main
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
